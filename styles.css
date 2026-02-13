@@ -1,0 +1,92 @@
+/*
+  styles.css
+  Basic, modern, responsive styles for the portfolio.
+  Uses CSS variables and simple layout patterns so it's easy to read.
+*/
+
+:root{
+  --bg:#0f1724; /* dark navy */
+  --card:#0f2333;
+  --muted:#9aa6b2;
+  --accent:#7c5cff; /* violet */
+  --teal:#2dd4bf;
+  --glass: rgba(255,255,255,0.04);
+  --radius:12px;
+  --max-width:1100px;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg),#071022 140%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{width:90%;max-width:var(--max-width);margin:0 auto;padding:40px 0}
+
+/* Header */
+.site-header{backdrop-filter:saturate(120%) blur(6px);position:sticky;top:0;z-index:40;background:linear-gradient(180deg,rgba(15,23,36,0.6),rgba(15,23,36,0.4))}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-weight:700;text-decoration:none;color:var(--accent);letter-spacing:0.4px}
+.nav{display:flex;gap:18px}
+.nav a{color:var(--muted);text-decoration:none;padding:12px;border-radius:8px}
+.nav a:hover{color:#fff;background:var(--glass)}
+.nav-toggle{display:none;background:none;border:0;color:var(--muted);font-size:20px}
+
+/* Hero */
+.hero{padding:60px 0}
+.hero-grid{display:grid;grid-template-columns:1fr 320px;gap:32px;align-items:center}
+.hero-content h1{font-size:2.1rem;margin:0}
+.accent{color:var(--teal)}
+.lead{color:var(--muted);margin:12px 0 18px}
+.hero-cta{display:flex;gap:12px}
+.btn{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:600}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#56ccff);color:#04111a}
+.btn.outline{border:1px solid rgba(255,255,255,0.06);color:var(--muted);background:transparent}
+
+.profile-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:22px;border-radius:16px;box-shadow:0 8px 30px rgba(2,6,23,0.6);text-align:center}
+.avatar{width:84px;height:84px;margin:0 auto 12px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--teal))}
+.muted{color:var(--muted)}
+.small{font-size:0.85rem}
+
+/* Sections */
+.section{padding:56px 0}
+.section.alt{background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)}
+h2{margin:0 0 14px}
+.intro{color:var(--muted);margin-bottom:18px}
+
+.cards{display:flex;gap:18px;flex-wrap:wrap}
+.card{background:var(--card);padding:18px;border-radius:12px;flex:1;min-width:180px}
+
+/* Skills grid */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:10px}
+.skill-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;text-align:center;font-weight:600;transition:transform 200ms ease, box-shadow 200ms ease;cursor:default}
+.skill-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,0.6)}
+
+/* Contact */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.contact-card{background:var(--card);padding:18px;border-radius:12px}
+
+/* Footer */
+.site-footer{padding:20px 0;border-top:1px solid rgba(255,255,255,0.03);}
+.footer-grid{display:flex;justify-content:space-between;align-items:center;gap:12px}
+
+/* Responsive adjustments */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-card{order:-1}
+  .nav{display:none}
+  .nav-toggle{display:block}
+}
+
+@media (max-width:520px){
+  .container{width:94%}
+  .hero-content h1{font-size:1.6rem}
+}
+
+/* small utilities */
+.muted{opacity:0.9}
